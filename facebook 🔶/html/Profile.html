@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <title>facebook.com</title>
+    <!-- style css link -->
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/mobile.css" media="screen and (max-width: 768px)">
+    <!-- /style css link/ -->
+
+
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- -----BOOTSTRAP----- -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- -----/BOOTSTRAP----- -->
+
+    <!-- -----AXIOS----- -->
+    <script src="../../node_modules/axios/dist/axios.min.js"></script>
+    <!-- -----/AXIOS----- -->
+
+</head>
+<style>
+/* facebook post 01 start */
+.fb-post1{
+    background: var(--white);
+    box-shadow: 0 2px 5px 0 var(--shadow);
+    border-radius: 20px;
+    padding: 15px 20px;
+    padding-bottom: 20px;
+    margin: 1rem 0;
+}
+.fb-post1-container{
+    display: flex;
+    flex-direction: column;
+}
+.fb-post1-header{
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+}
+.fb-post1-header ul{
+    display: flex;
+}
+.fb-post1-header ul li{
+    text-transform: uppercase;
+    padding: 5px 10px;
+    font-weight: 600;
+    color: var(--gray);
+    transition: .4s;
+    cursor: pointer;
+}
+.fb-post1-header ul li:hover{
+    color: #3d3e42;
+}
+.fb-post1-header .active{
+    color: var(--black);
+    border-bottom: 3px solid #1877f2;
+}
+.fb-p1-main{
+    display: flex;
+    flex-direction: column;
+}
+.post-title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 15px 0;
+}
+:root{
+    --width-profile:60px
+}
+.post-title img{
+    width: var(--width-profile);
+    height:var(--width-profile);
+    border-radius: 50px;
+    /* margin-right: 20px; */
+    margin-bottom: 20px;
+}
+
+.post-title ul{
+    width: 87%;
+    margin-bottom: 20px;
+}
+.post-title ul li span{
+    color: var(--gray);
+    font-weight: 400;
+    font-size: 14px;
+}
+.post-title p{
+    color: var(--gray);
+}
+.post-title p a{
+    color: #4575b3;
+}
+.post-images{
+    display: flex;
+    justify-content: space-between;
+}
+.post-images1{
+    width: 60%;
+    overflow: hidden;
+}
+.post-images2{
+    width: 37%;
+    overflow: hidden;
+}
+.post-images1 img:nth-child(1){
+    width: 100%;
+    margin-bottom: 10px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.post-images1 img:nth-child(2){
+    width: 47%;
+    margin-right: 4%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.post-images1 img:nth-child(3){
+    width: 47%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.post-images2 img{
+    width: 100%;
+    height: 335px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.like-comment{
+    width: 100%;
+    margin-top: 15px;
+}
+.like-comment ul{
+    display: flex;
+    align-items: center;
+}
+.tags{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+.tags .tag{
+    margin: 3px;
+    color:#0055ffe7;
+    font-size: 12px;
+}
+.like-comment ul li{
+    margin-right: 20px;
+}
+.like-comment ul li:hover{
+    cursor: pointer;
+    span{
+        text-decoration: underline;
+    }
+}
+.like-comment ul li img{
+    width: 20px;
+    margin-right: -5px;
+}
+.like-comment ul li i{
+    color: #9d9d9d;
+}
+.like-comment ul li span{
+    color: var(--gray);
+    margin-left: 0.18rem;
+    /* font-size: 14px;transition: all; */
+}
+.like-comment .comments{
+    display: block;
+}
+.like-comment .comments li{
+    background-color: #c3c3c3;
+    padding:20px;
+    border-radius: 15px;
+    margin: 1rem;
+}
+.like-comment .comments li img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right:0.4rem;
+}
+.fb-p1-main h3{
+    font-size: large;
+}
+/* facebook post 01 end */
+.user-info-title-comment-post-numbers{
+    display: flex;
+    flex-direction: row;
+}
+.user-info-title{
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    width: 40%;
+}
+:root{
+    --width-profile:120px
+}
+.user-info-title img{
+    width: var(--width-profile);
+    height:var(--width-profile);
+    border-radius: 50%;
+}
+.comment-post-numbers{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+.post-numbers{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.post-numbers span{
+    font-size: 120px;
+}
+.comment-numbers{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.comment-numbers span{
+    font-size: 120px;
+}
+@media screen and (max-width: 768px) {
+
+    .user-info-title-comment-post-numbers{
+        display: flex;
+        flex-direction: column;
+    }
+    .user-info-title{
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        width: 40%;
+    }
+    h4{
+        margin-bottom: 0;
+        font-weight: 400
+    }
+    :root{
+        --width-profile:120px
+    }
+
+    .comment-numbers span,.post-numbers span{
+        font-size: 32px;
+    }
+    /*--------------*/
+    .header-wrapper{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        padding: 0 8px;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+    .logoBox{
+        width: 7%;
+    }
+    .logoBox img{
+        width: 60px;
+    }
+    .searchBox{
+        display: none;
+    }
+    .iconBox1{
+        width: 25%;
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+        padding: 0 25px;
+        border-right: 2px solid var(--border);
+    }
+    .iconBox1 i{
+        display: none;
+    }
+    .iconBox1 #home{
+        display: block;
+    }
+    .iconBox2{
+        /* width: 25%; */
+        display: flex;
+        justify-content: space-between;
+        padding: 0 25px;
+        /* position: relative; */
+    }
+    
+    .iconBox1 i,
+    .iconBox2 i,.iconBox1 a{
+        font-size: 20px;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        color: #769bcb;
+        transition: .4s;
+    }
+    .iconBox1 i:hover,
+    .iconBox2 i:hover,.iconBox1 a:hover{
+        background: #1877f2;
+        color: #d1deec;
+        cursor: pointer;
+        position: absolute;
+    }
+    .iconBox2 label img{
+        width: 100%;
+    }
+    .iconBox2 i{
+        display: none;
+    }
+    .post-title{
+        flex-wrap: nowrap;
+    }
+    .post-images1{
+        display: none;
+    }
+    .post-images2{
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+    
+}
+</style>
+<body class="style-body">
+    <!-- ALERT LOG IN SUCCESS -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+
+        <symbol id="check-circle-fill" viewBox="0 0 16 16" width="20">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+
+    </svg>
+
+    <div id="alert-login-success"
+        style="position: absolute;top:16%;right:3%;height:20px; visibility: hidden;transition: 5s;"
+        class="alert alert-success d-flex align-items-center" role="alert">
+        <svg style="width:20px" class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
+            <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div id="alert-text-success">
+            You are Successfully Login
+        </div>
+    </div>
+    <!-- /ALERT LOG IN SUCCESS -->
+
+
+    <!-- --------header section start-------- -->
+    <header>
+        <div class="header-container container">
+            <div class="header-wrapper">
+                <div class="logoBox">
+                    <img src="images/facebook-logo.png" alt="logo">
+                </div>
+                <div class="searchBox">
+                    <input type="search" placeholder="search here">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="iconBox1">
+                    <!-- <i class="fa-solid fa-house"></i> -->
+                    <a class="fa-solid fa-house" href="./index.html" style="text-decoration: none;"></a>
+                    <i class="fa-solid fa-user-group"></i>
+                    <i class="fa-solid fa-video"></i>
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div class="iconBox2">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                    <i class="fa-solid fa-bell"></i>
+
+                    <!-- -----BUTTON LOGIN & REGISTER----- -->
+                    <div class="login-register" aria-disabled="block">
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            data-bs-target="#login-modal">Login</button>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            data-bs-target="#register-modal">register</button>
+                    </div>
+                    <!-- -----/BUTTON LOGIN & REGISTER----- -->
+
+                    <!-- -----MODAL LOGIN----- -->
+                    <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Username:</label>
+                                            <input type="text" class="form-control" id="login-username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Password:</label>
+                                            <input type="password" class="form-control" id="login-password">
+                                            <span class="login-error-password"></span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button id="Login-button" onclick="Login()" type="button" class="btn btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -----/MODAL LOGIN----- -->
+
+                    <!-- -----MODAL REGISTER----- -->
+                    <div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Register A New User</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="row g-2">
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Image</label>
+                                            <input type="file" class="form-control" id="register-profile-image">
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="visually-hidden" for="autoSizingInput">Name</label>
+                                            <input type="text" class="form-control" id="register-name" placeholder="Jane Doe">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                                            <div class="input-group">
+                                                <div class="input-group-text">@</div>
+                                                <input type="text" class="form-control" id="register-username" placeholder="Username">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="inputEmail4" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="register-email">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputPassword4" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="register-password">
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button id="Register-button" onclick="RegisterNewUser()" type="submit" class="btn btn-primary">Submit</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div id="alert-danger" class="alert alert-danger" role="alert" style="display: flex;align-items: center;height:20px; visibility: hidden;transition: 5s;width:fit-content;top:4%;left:35%">
+                            A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                        </div>
+                    </div>
+                    <!-- -----/MODAL REGISTER----- -->
+
+                    <!-- PROFILE -->
+                    <img src="images/user.jpg" style="width: 40px;height:40px;border-radius: 50px;" class="user-pic"
+                        onclick="toggleMenu()">
+                    <!-- PROFILE MENU -->
+                    <div onclick="sendComment()" class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <img id="user-info-image-profile" src="images/user.jpg">
+                                <h3 id="user-info-name">James Karingy</h3>
+                            </div>
+                            <hr>
+                            <a href="">
+                                <p>Setting</p>
+                            </a>
+                            <a href="">
+                                <p>Help</p>
+                            </a>
+                            <a onclick="LogOut()" style="color: #f40707;" href="">
+                                <p>Log Out</p>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /PROFILE MENU -->
+                    <!-- /PROFILE -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- --------/header section end/-------- -->
+
+
+    <!-- --------home section start-------- -->
+    <div class="home">
+        <div class="style-container">
+            <div class="home-weapper">
+                <!-- --------home center wrapper end-------- -->
+                <div class="home-center container ">
+                    <div class="home-center-wrapper ">
+                        <!-- --------INFO USER-------- -->
+                        <div class="fb-post1">
+                            <div class="fb-post1-container" >
+                                <div class="user-info-title-comment-post-numbers">
+                                    <div class="user-info-title">
+                                        <img id="user-info-title-picture" src="images/user2.jpg" alt="user picture">
+                                        <ul>
+                                            <li><h3 id="name-user-info-title">Arham Kabir</h3></li>
+                                            <li>@<span id="username-user-info-title">Arham234</span></li>
+                                            <li><span id="email-user-info-title" >Arham234</span></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="comment-post-numbers">
+                                        <div class="post-numbers">
+                                            <span id="numberPost-user-info-title">0</span>
+                                            <h4>Posts</h4>
+                                        </div>
+                                        <div class="comment-numbers">
+                                            <span id="numberComment-user-info-title">0</span>
+                                            <h4>comments</h4>
+                                        </div>
+                                    </div>                      
+                                </div>
+                            </div>
+                        </div>
+                        <!-- --------/INFO USER-------- -->
+
+                        <!-- -----MODAL CREATE & UPDATE POST---- -->
+                        <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="Title-create-post-modal">Create post</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">title:</label>
+                                                <input type="text" class="form-control" id="title-create-a-new-post">
+
+                                                <input type="hidden" id="post-id-input" value="">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">content post:</label>
+                                                <div class="input-group">
+                                                    <textarea class="form-control" aria-label="With textarea" id="textarea-create-a-new-post"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">Image</label>
+                                                <input type="file" class="form-control" id="image-create-a-new-post">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button id="post-modal-submit-but" onclick="createAnewPost()" type="button" class="btn btn-primary">Create</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="alert-danger-post" class="alert alert-danger" role="alert" style="display: flex;align-items: center;height:20px; visibility: hidden;transition: 5s;width:fit-content;top:4%;left:35%">
+                                A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                        </div>
+                        <!-- -----/MODAL CREATE & UPDATE POST---- -->
+
+                        <!-- -----MODAL DELETE POST---- -->
+                        <div class="modal fade" id="delete-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="Title-create-post-modal">Are you sure to delete this post?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button id="post-modal-submit-but" onclick="confirmDeletePost()" 
+                                            type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="alert-danger-post" class="alert alert-danger" role="alert" style="display: flex;align-items: center;height:20px; visibility: hidden;transition: 5s;width:fit-content;top:4%;left:35%">
+                                A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                        </div>
+                        <!-- -----/MODAL DELETE POST---- -->
+
+                        <!-- --------ALL MY POST-------- -->
+                         <div class="ALL-MY-POST">
+                            
+                         </div>
+                        <div class="fb-post1" style="display: none;">
+                            <div class="fb-post1-container" >
+                                <div class="fb-post1-header">
+                                    <ul>
+                                        <li class="active">popular</li>
+                                        <li>recent</li>
+                                        <li>most view</li>
+                                    </ul>
+                                </div>
+                                <div class="fb-p1-main">
+                                    <div class="post-title">
+                                        <img src="images/user2.jpg" alt="user picture">
+                                        <ul>
+                                            <li>
+                                                <h3>Arham Kabir <span> . 2 hours ago</span></h3>
+                                            </li>
+                                            <li><span>02 march at 12:55 PM</span></li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>about me</h3>
+                                    <p>Hello Everyone Thanks for Watching Please SUBSCRIBE My Channel - Like Comments
+                                        and Share
+                                        <a
+                                            href="https://www.youtube.com/channel/UCHhGX-DD7A8jq7J_NPGN6gA">https://www.youtube.com/channel/UCHhGX-DD7A8jq7J_NPGN6gA</a>
+                                    </p>
+                                    <div class="tags" style="display: flex;">
+                                    </div>
+                                    <div class="post-images">
+                                        <div class="post-images1">
+                                            <img src="images/pp.jpg" alt="post images 01">
+                                            <img src="images/pp2.jpg" alt="post images 02">
+                                            <img src="images/pp3.jpg" alt="post images 03">
+                                        </div>
+                                        <div class="post-images2">
+                                            <img src="images/pp4.jpg" alt="post images 04">
+                                        </div>
+                                    </div>
+
+                                    <div class="like-comment">
+                                        <ul>
+                                            <li>
+                                                <img src="images/love.png" alt="love">
+                                                <img src="images/like.png" alt="like">
+                                                <span>22k like</span>
+                                            </li>
+                                            <li><i class="fa-regular fa-comment-dots"></i> <span><span class="comment-number">33</span> comments</span>
+                                            </li>
+                                            <li><i class="fa-solid fa-share-from-square"></i> <span>254 share</span>
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <ul class="comments">
+                                            <li >
+                                                <img src="./demo (1).png" alt="" style="width: 40px;height: 40px;border-radius: 50%;margin-right:0.4rem;">
+                                                <b>da</b>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ducimus sint nihil nam veritatis aliquid perspiciatis amet dolore reiciendis distinctio?</p>
+                                            </li>
+                                            <li style="background-color: #9d9d9d;padding:20px;border-radius: 15px;">
+                                                <img src="./demo (1).png" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+                                                <b>da</b>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ducimus sint nihil nam veritatis aliquid perspiciatis amet dolore reiciendis distinctio?</p>
+                                            </li>
+                                            <li style="background-color: #9d9d9d;padding:20px;border-radius: 15px;">
+                                                <img src="./demo (1).png" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+                                                <b>da</b>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ducimus sint nihil nam veritatis aliquid perspiciatis amet dolore reiciendis distinctio?</p>
+                                            </li>
+                                            <li style="background-color: #9d9d9d;padding:20px;border-radius: 15px;">
+                                                <img src="./demo (1).png" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+                                                <b>da</b>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ducimus sint nihil nam veritatis aliquid perspiciatis amet dolore reiciendis distinctio?</p>
+                                            </li>
+                                        </ul>
+                                        <ul id="khgkgd">
+                                            <input type="text" placeholder="add your comment">
+                                            <button type="button" class="btn btn-primary">Send</button>
+
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- --------/ALL MY POST-------- -->
+
+                    </div>
+                </div>
+                <!-- --------/home center wrapper end/-------- -->
+            </div>
+        </div>
+    </div>
+    <!-- --------/home section end/-------- -->
+
+    <script src="../js/mainLogic.js"></script>
+    <script src="../js/homeScript.js"></script>
+    <script src="../js/profileScript.js"></script>
+    <!-- ctrl + f to searching to word -->
+</body>
+
+</html>
